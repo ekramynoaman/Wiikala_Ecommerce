@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { GoodsService } from './../../services/goods.service';
+import { Good } from './../../interfaces/good.interface';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+
+import { NgForm } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
+
 
 @Component({
   selector: 'app-goods',
@@ -7,9 +13,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoodsComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('image') image: ElementRef;
 
-  ngOnInit() {
+
+
+  constructor(private goodsService: GoodsService) { }
+  ngOnInit() {}
+
+  addNewGood(form: NgForm) {
+    const name  = (form.value as Good).name;
+    const price = (form.value as Good).price;
+    const image = (this.image.nativeElement as HTMLInputElement).files[0];
+    this.goodsService.addNewGood(name, price, image).then(msg => console.log(msg));
   }
 
 }
