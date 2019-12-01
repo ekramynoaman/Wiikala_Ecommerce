@@ -13,7 +13,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class GoodsComponent implements OnInit {
 
-  @ViewChild('image') image: ElementRef;
+  @ViewChild('image', {static: false}) image: ElementRef;
 
 
 
