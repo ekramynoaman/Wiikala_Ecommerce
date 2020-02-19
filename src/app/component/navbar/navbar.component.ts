@@ -9,30 +9,32 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   isopen = false;
+
+  // User case
   isUser = false;
 
-  constructor(private authFire: AuthService) { }
+  constructor(private authSer: AuthService) { }
 
   ngOnInit() {
-    this.authFire.user.subscribe(user => {
+    this.authSer.user.subscribe(user => {
       if (user) {
         this.isUser = true;
-        this.authFire.userId = user.uid;
+        this.authSer.userId = user.uid;
       } else {
         this.isUser = false;
-        this.authFire.userId = '';
+        this.authSer.userId = '';
 
       }
     });
 
   }
-
+  // Toggle navbar
   toggleNavbar() {
     this.isopen = !this.isopen;
   }
 
   logOut() {
-    this.authFire.logOut();
+    this.authSer.logOut();
   }
 
 }

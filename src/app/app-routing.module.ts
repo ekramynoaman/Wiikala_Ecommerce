@@ -1,3 +1,4 @@
+import { UserGuard } from './services/guards/user-guard.guard';
 import { AuthGuard } from './services/guards/auth.guard';
 
 import { NgModule } from '@angular/core';
@@ -15,9 +16,9 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, data: {index: 0}},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'cart', component: CartComponent,  canActivate: [AuthGuard],  data: {index: 1}},
-  {path: 'signup', component: SignupComponent},
-  {path: 'admin', component: GoodsComponent,  canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent, canActivate: [UserGuard], data: {index: 4}},
+  {path: 'admin', component: GoodsComponent,  canActivate: [AuthGuard], data: {index: 3}},
+  {path: 'login', component: LoginComponent, canActivate: [UserGuard], data: {index: 2}},
   {path: '**', component: NotfoundComponent}
 
 ];

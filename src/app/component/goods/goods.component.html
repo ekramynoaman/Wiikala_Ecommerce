@@ -4,6 +4,8 @@
         <input type="text" class="form-control mb-2" name="name" ngModel placeholder="Name" required>
         <input type="text" class="form-control mb-2" name="price" ngModel placeholder="Price" required>
         <input type="file" name="image" ngModel #image required>
-        <button class="btn btn-primary mt-2" [disabled]="form.invalid">Add</button>
+        
+        <button class="btn btn-primary mt-2 mr-2" [disabled]="form.invalid">Add</button>
+        <span>{{message}}</span>
     </form>
 </div>

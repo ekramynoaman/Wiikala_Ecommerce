@@ -22,14 +22,14 @@ export class SignupComponent implements OnInit {
   }
 
    signup(form) {
-
+         // Store form value on data
         const data: User = form.value;
         this.authService.signUp(data.email, data.password)
         .then(result => {
-          this.errorMessage = '';
+          this.errorMessage = ''; // reset error message
           this.userService.addNewUser(result.user.uid, data.name, data.address)
           .then(() => {
-            this.router.navigate(['/']);
+            this.router.navigate(['/']); // Go to home
           });
         })
         .catch(err => {

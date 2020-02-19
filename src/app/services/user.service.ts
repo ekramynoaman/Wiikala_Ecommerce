@@ -7,10 +7,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class UserService {
 
-  constructor(private userService: AngularFirestore, private authService: AuthService) { }
+  constructor(private userStore: AngularFirestore, private authService: AuthService) { }
 
   addNewUser(id, name, address) {
-    return this.userService.doc('users/' + id).set({
+    return this.userStore.doc('users/' + id).set({
       name,
       address
     });

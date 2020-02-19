@@ -10,19 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authFire: AuthService, private router: Router) { }
+
+
+  // Error message
+  errorMessage = '';
+
+  constructor(private authSer: AuthService, private router: Router) { 
+    // this.authSer.user.subscribe(user => {
+    //   if ( user) {
+    //     this.router.navigate(['/']);
+    //   }
+    // });
+  }
 
   ngOnInit() {
+
   }
+
+
 
   login(form) {
     const data: User = form.value;
-    this.authFire.logIn(data.email, data.password)
+    this.authSer.logIn(data.email, data.password)
     .then(result => {
-      console.log(result);
+      this.errorMessage = '';
       this.router.navigate(['/']);
     })
-    .catch(err => console.log(err));
+    .catch(err => this.errorMessage = err.message);
 
   }
 

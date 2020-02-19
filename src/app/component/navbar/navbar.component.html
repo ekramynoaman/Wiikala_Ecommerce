@@ -15,7 +15,7 @@
           <a class="nav-link" routerLink="/cart" routerLinkActive="active" >Cart</a>
         </li>
         <li class="nav-item" *ngIf="isUser">
-          <a class="nav-link" routerLink="/admin" routerLinkActive="active" >Goods</a>
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active" >Dashboard</a>
         </li>
         <li class="nav-item" *ngIf="!isUser">
           <a class="nav-link" routerLink="/login" routerLinkActive="active" >Login</a>
@@ -23,7 +23,7 @@
         <li class="nav-item" *ngIf="!isUser">
           <a class="nav-link" routerLink="/signup" routerLinkActive="active" >Signup</a>
         </li>
-        <li class="nav-item"  *ngIf="isUser">
+        <li class="nav-item" *ngIf="isUser">
           <button class="nav-link btn btn-danger text-white" (click)="logOut()" 
           routerLink="/">Logout</button>
         </li>

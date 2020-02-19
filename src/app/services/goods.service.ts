@@ -15,7 +15,7 @@ export class GoodsService {
   }
 
   // Add New Good Function
-  addNewGood(name: String, price: Number, image: File) {
+  addNewGood(name: string, price: number, image: File) {
   return new Promise ((resolve, reject) => {
     const ref = this.goToStorage.ref('goods/' + image.name);
     ref.put(image).then(() => {

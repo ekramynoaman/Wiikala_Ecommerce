@@ -7,10 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
+  // to check if user is logIn
   user: Observable<firebase.User>;
+
+  // to store user id
   userId = '';
 
   constructor(private fireAuth: AngularFireAuth) {
+    // Assign user case to user
     this.user = fireAuth.user;
   }
 

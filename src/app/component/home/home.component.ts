@@ -11,7 +11,10 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
+  // Array to store data
   goods: Good[] = [];
+
+  // Store subscription to use it on destroy
   goodsObservable: Subscription;
 
   // index of item
@@ -32,13 +35,15 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.goodsObservable.unsubscribe();
-
   }
 
-  toCart(index) {
-    this.add = +index;
+
+  // Add to cart function
+  toCart(index: number) {
+    this.add = index;
   }
 
+  // Buy function
   buy(amount: number) {
     const selectedGood = this.goods[this.add];
     const data = {
@@ -48,9 +53,4 @@ export class HomeComponent implements OnInit, OnDestroy {
     };
     this.cartS.addToCart(data).then(() => this.add = -1);
   }
-
-
-
-
-
 }

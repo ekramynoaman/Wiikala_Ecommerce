@@ -16,6 +16,10 @@ export class GoodsComponent implements OnInit {
   @ViewChild('image', {static: false}) image: ElementRef;
 
 
+  // New good message
+  message;
+
+
 
   constructor(private goodsService: GoodsService) { }
   ngOnInit() {}
@@ -24,7 +28,7 @@ export class GoodsComponent implements OnInit {
     const name  = (form.value as Good).name;
     const price = (form.value as Good).price;
     const image = (this.image.nativeElement as HTMLInputElement).files[0];
-    this.goodsService.addNewGood(name, price, image).then(msg => console.log(msg));
+    this.goodsService.addNewGood(name, price, image).then(msg => this.message = msg);
   }
 
 }
