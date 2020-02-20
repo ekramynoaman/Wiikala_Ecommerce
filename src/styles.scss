@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'variable';
+
+
 
 body {
     overflow-x: hidden;
+    background-color: $bgColor;
 }
 
 /* fix the position when router animation */

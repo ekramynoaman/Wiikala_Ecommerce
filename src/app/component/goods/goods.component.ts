@@ -9,7 +9,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 @Component({
   selector: 'app-goods',
   templateUrl: './goods.component.html',
-  styleUrls: ['./goods.component.css']
+  styleUrls: ['./goods.component.scss']
 })
 export class GoodsComponent implements OnInit {
 
